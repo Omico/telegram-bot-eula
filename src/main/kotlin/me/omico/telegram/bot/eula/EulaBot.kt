@@ -1,3 +1,5 @@
+@file:JvmName("EulaBot")
+
 package me.omico.telegram.bot.eula
 
 import eu.vendeli.tgbot.TelegramBot

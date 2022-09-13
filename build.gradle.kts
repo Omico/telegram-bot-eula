@@ -1,4 +1,5 @@
 plugins {
+    application
     kotlin("jvm") version "1.7.10"
 }
 
@@ -22,9 +23,14 @@ kotlin {
     }
 }
 
+application {
+    applicationName = "EulaBot"
+    mainClass.set("me.omico.telegram.bot.eula.EulaBot")
+}
+
 dependencies {
+    compileOnly("io.ktor:ktor-client-core:2.1.1")
     implementation("eu.vendeli:telegram-bot:2.2.1")
-    implementation("io.ktor:ktor-client-core:2.1.1")
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     testImplementation(kotlin("test"))
