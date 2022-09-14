@@ -3,4 +3,5 @@
 .gradle/
 .idea/
 build/
+docker-compose.yml
 local.properties
