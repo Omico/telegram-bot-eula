@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     application
     kotlin("jvm") version "1.7.10"
@@ -34,4 +36,16 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     testImplementation(kotlin("test"))
+}
+
+val localProperties by lazy {
+    Properties().apply {
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (!localPropertiesFile.exists()) localPropertiesFile.createNewFile()
+        localPropertiesFile.inputStream().use(::load)
+    }
+}
+
+tasks.run<JavaExec> {
+    args = listOf("--token", localProperties["BOT_TOKEN"] as String)
 }
