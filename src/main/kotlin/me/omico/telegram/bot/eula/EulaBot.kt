@@ -7,7 +7,7 @@ import kotlinx.cli.ArgParser
 import kotlinx.cli.ArgType
 import kotlinx.cli.required
 import me.omico.telegram.bot.eula.feature.twitter.setupTweetPurify
-import me.omico.telegram.bot.eula.utility.autoRetry
+import me.omico.telegram.bot.utility.autoRetry
 
 suspend fun main(arguments: Array<String>) {
     val parser = ArgParser("EulaBot")
