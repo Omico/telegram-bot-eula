@@ -6,6 +6,7 @@ import eu.vendeli.tgbot.TelegramBot
 import kotlinx.cli.ArgParser
 import kotlinx.cli.ArgType
 import kotlinx.cli.required
+import me.omico.telegram.bot.eula.feature.bilibili.setupBilibiliVideoPurify
 import me.omico.telegram.bot.eula.feature.twitter.setupTweetPurify
 import me.omico.telegram.bot.utility.autoRetry
 
@@ -25,5 +26,6 @@ suspend fun main(arguments: Array<String>) {
     )
     bot.autoRetry {
         setupTweetPurify(bot)
+        setupBilibiliVideoPurify(bot)
     }
 }
