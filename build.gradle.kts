@@ -31,10 +31,10 @@ application {
 }
 
 dependencies {
-    val ktorVersion = "2.1.2"
+    val ktorVersion = "2.2.1"
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("io.ktor:ktor-client-logging:$ktorVersion")
-    implementation("eu.vendeli:telegram-bot:2.2.2") {
+    implementation("eu.vendeli:telegram-bot:2.4.2") {
         exclude(group = "io.ktor")
     }
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
