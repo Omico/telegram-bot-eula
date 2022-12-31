@@ -5,9 +5,9 @@ import eu.vendeli.tgbot.api.message
 import eu.vendeli.tgbot.core.ManualHandlingDsl
 import eu.vendeli.tgbot.interfaces.sendAsync
 import eu.vendeli.tgbot.types.ParseMode
-import eu.vendeli.tgbot.types.User
 import eu.vendeli.tgbot.types.internal.onFailure
 import me.omico.telegram.bot.utility.deleteMessage
+import me.omico.telegram.bot.utility.mention
 
 internal suspend fun ManualHandlingDsl.setupTweetPurify(bot: TelegramBot) = onMessage {
     val message = data
@@ -34,6 +34,3 @@ internal suspend fun ManualHandlingDsl.setupTweetPurify(bot: TelegramBot) = onMe
 
 private val tweetRegex =
     "(http(s)?://)(twitter.com)(/)([a-zA-Z0-9_]+)(/status/)(\\d+)((\\?.*)?)".toRegex()
-
-private val User.mention: String
-    get() = "[${username ?: firstName}](tg://user?id=$id)"
