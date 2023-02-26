@@ -25,7 +25,11 @@ suspend fun main(arguments: Array<String>) {
         commandsPackage = "me.omico.telegram.bot.eula",
     )
     bot.autoRetry {
-        setupTweetPurify(bot)
-        setupBilibiliVideoPurify(bot)
+        onMessage {
+            with(data) {
+                setupTweetPurify(bot)
+                setupBilibiliVideoPurify(bot)
+            }
+        }
     }
 }

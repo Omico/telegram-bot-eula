@@ -2,7 +2,7 @@ import java.util.Properties
 
 plugins {
     application
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.8.10"
 }
 
 group = "me.omico.telegram.bot.eula"
@@ -13,10 +13,10 @@ repositories {
 }
 
 kotlin {
+    jvmToolchain(18)
     target {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "11"
                 freeCompilerArgs = listOf(
                     "-Xcontext-receivers",
                 )
@@ -31,10 +31,10 @@ application {
 }
 
 dependencies {
-    val ktorVersion = "2.2.1"
+    val ktorVersion = "2.2.3"
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("io.ktor:ktor-client-logging:$ktorVersion")
-    implementation("eu.vendeli:telegram-bot:2.4.2") {
+    implementation("eu.vendeli:telegram-bot:2.5.4") {
         exclude(group = "io.ktor")
     }
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
